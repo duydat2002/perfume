@@ -16,7 +16,7 @@ interface IState {
 
 export const useCommonStore = defineStore("common", {
   state: (): IState => ({
-    popupTabs: ["signup", "signin", "forgotPassword"],
+    popupTabs: ["signup", "signin", "forgotPassword", "search"],
     popupSelected: undefined,
     accountUser: {
       username: "user",

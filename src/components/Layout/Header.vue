@@ -5,6 +5,7 @@ import BagIcon from "@icons/bag.svg";
 import { useRoute, useRouter } from "vue-router";
 import { storeToRefs } from "pinia";
 import { useCommonStore } from "@/stores";
+import Search from "./Search.vue";
 
 const router = useRouter();
 const route = useRoute();
@@ -58,7 +59,14 @@ const clickAccount = () => {
       >
     </div>
     <div class="flex items-center gap-4">
-      <div class="">
+      <div
+        class=""
+        @click="
+          () => {
+            popupSelected = 'search';
+          }
+        "
+      >
         <SearchIcon class="w-6 cursor-pointer" />
       </div>
       <div class="" @click="clickAccount">
@@ -69,4 +77,5 @@ const clickAccount = () => {
       </RouterLink>
     </div>
   </div>
+  <Search v-if="popupSelected == 'search'" />
 </template>

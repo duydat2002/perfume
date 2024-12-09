@@ -10,8 +10,6 @@ const props = defineProps<{
   title: string;
   products: IProduct[];
 }>();
-
-const uniqueId = ref(Math.random().toString(36).substr(2, 9));
 </script>
 
 <template>
