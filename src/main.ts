@@ -5,7 +5,7 @@ import router from "./router";
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
-import { ClickOutside } from "./directives";
+import { ClickInside, ClickOutside } from "./directives";
 
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
@@ -14,4 +14,5 @@ const app = createApp(App);
 app.use(pinia);
 app.use(router);
 app.directive("click-outside", ClickOutside);
+app.directive("click-inside", ClickInside);
 app.mount("#app");

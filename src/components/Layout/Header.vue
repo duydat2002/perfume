@@ -2,9 +2,22 @@
 import SearchIcon from "@icons/search.svg";
 import UserIcon from "@icons/user-circle.svg";
 import BagIcon from "@icons/bag.svg";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
+import { storeToRefs } from "pinia";
+import { useCommonStore } from "@/stores";
 
+const router = useRouter();
 const route = useRoute();
+
+const { popupSelected, isSignIn } = storeToRefs(useCommonStore());
+
+const clickAccount = () => {
+  if (isSignIn.value) {
+    router.push({ name: "Account" });
+  } else {
+    popupSelected.value = "signin";
+  }
+};
 </script>
 
 <template>
@@ -48,9 +61,9 @@ const route = useRoute();
       <div class="">
         <SearchIcon class="w-6 cursor-pointer" />
       </div>
-      <RouterLink :to="{ name: 'Account' }" class="">
+      <div class="" @click="clickAccount">
         <UserIcon class="w-6 cursor-pointer" />
-      </RouterLink>
+      </div>
       <RouterLink :to="{ name: 'Cart' }" class="relative">
         <BagIcon class="w-6 cursor-pointer" />
       </RouterLink>

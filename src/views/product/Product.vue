@@ -47,7 +47,6 @@ const imgs = computed(() => {
     getDynamicImage("Tom Ford.png"),
     getDynamicImage("Dior Sauvage EDP.png"),
     getDynamicImage("Dolce & Gabbana Brown.png"),
-    ,
   ];
 });
 

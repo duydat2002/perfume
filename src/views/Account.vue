@@ -5,6 +5,13 @@ import AccountAddress from "@/components/Account/Address.vue";
 import AccountOrder from "@/components/Account/Order.vue";
 import AccountWishlist from "@/components/Account/Wishlist.vue";
 import { ref } from "vue";
+import { storeToRefs } from "pinia";
+import { useCommonStore } from "@/stores";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const { isSignIn } = storeToRefs(useCommonStore());
 
 const tabs = ref([
   { name: "account", title: "Tài khoản" },
@@ -20,6 +27,8 @@ const tabChoose = (tabName: string) => {
   if (tabName != "signout") {
     tabSelected.value = tabName;
   } else {
+    isSignIn.value = false;
+    router.push({ name: "Home" });
   }
 };
 </script>

@@ -58,6 +58,12 @@ const routes: Readonly<RouteRecordRaw[]> = [
     meta: { title: "Perfume Store • Bài viết", layout: AppLayout },
   },
   {
+    path: "/contact",
+    name: "Contact",
+    component: () => import("@/views/Contact.vue"),
+    meta: { title: "Perfume Store • Liên hệ", layout: AppLayout },
+  },
+  {
     path: "/signup",
     name: "SignUp",
     component: () => import("@/views/auth/SignUp.vue"),

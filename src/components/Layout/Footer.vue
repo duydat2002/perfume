@@ -75,7 +75,7 @@ import ThreadIcon from "@icons/thread-f.svg";
         <RouterLink class="text-14px text-neutral-100" :to="{ name: 'Home' }"
           >Blog</RouterLink
         >
-        <RouterLink class="text-14px text-neutral-100" :to="{ name: 'Home' }"
+        <RouterLink class="text-14px text-neutral-100" :to="{ name: 'Contact' }"
           >Liên hệ</RouterLink
         >
       </div>
