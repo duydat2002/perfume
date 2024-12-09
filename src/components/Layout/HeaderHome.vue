@@ -72,7 +72,7 @@ onMounted(() => {
       <RouterLink
         class="has-[.active]:font-semibold hover:font-semibold transition-all duration-200"
         :class="{ active: route.name == 'About' }"
-        :to="{ name: 'Home' }"
+        :to="{ name: 'About' }"
         >Giới thiệu</RouterLink
       >
       <RouterLink
