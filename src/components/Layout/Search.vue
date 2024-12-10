@@ -43,7 +43,7 @@ const searchProducts = computed(() => {
         <SearchIcon class="w-5" />
         <input
           type="text"
-          class="text-16px font-medium text-neutral-900 placeholder:text-neutral-700"
+          class="size-full text-16px font-medium text-neutral-900 placeholder:text-neutral-700"
           placeholder="Tìm kiếm"
           v-model="search"
         />

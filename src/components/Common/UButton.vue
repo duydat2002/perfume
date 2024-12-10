@@ -23,16 +23,16 @@ const variantTypeClass = computed(() => {
   switch (props.variantType) {
     case "primary":
       return props.variant == "contained"
-        ? "bg-brand-500 border-brand-500 text-white"
-        : "border-brand-500 bg-transparent text-brand-500";
+        ? "bg-brand-500 border-brand-500 text-white hover:bg-brand-400 active:bg-brand-500"
+        : "border-brand-300 bg-transparent text-brand-500 hover:bg-brand-50 active:bg-transparent";
     case "secondary":
       return props.variant == "contained"
         ? "bg-black border-black text-white"
-        : "border-black bg-transparent text-black";
+        : "border-black bg-transparent text-black ";
     case "white":
       return props.variant == "contained"
         ? "bg-white border-white text-white"
-        : "border-white bg-transparent text-white";
+        : "border-white bg-transparent text-white hover:bg-white hover:text-black active:bg-neutral-100";
     default:
       return "";
   }
@@ -54,7 +54,7 @@ const sizeClass = computed(() => {
 
 <template>
   <div
-    class="flex flex-center gap-2 border border-neutral-700 cursor-pointer"
+    class="flex flex-center gap-2 border cursor-pointer transition-all duration-200"
     :class="[rounded, variantTypeClass, sizeClass]"
   >
     <slot name="left" />

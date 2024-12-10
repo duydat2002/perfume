@@ -81,6 +81,12 @@ onMounted(() => {
         :to="{ name: 'Blog' }"
         >Blog</RouterLink
       >
+      <RouterLink
+        class="has-[.active]:font-semibold hover:font-semibold transition-all duration-200"
+        :class="{ active: route.name == 'Contact' }"
+        :to="{ name: 'Contact' }"
+        >Liên hệ</RouterLink
+      >
     </div>
     <div
       class="flex items-center gap-4"
