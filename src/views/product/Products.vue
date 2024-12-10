@@ -1,50 +1,22 @@
 <script setup lang="ts">
 import ArrowLeftLIcon from "@icons/arrow-left-long.svg";
 import ArrowRightLIcon from "@icons/arrow-right-long.svg";
+import FilterIcon from "@icons/filter.svg";
 import USelect from "@/components/Common/USelect.vue";
 import { IBreadcrum, IOption } from "@/types";
 import { onMounted, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import ProductItem from "@/components/Product/ProductItem.vue";
 import { storeToRefs } from "pinia";
-import { useProductStore } from "@/stores";
+import { useCommonStore, useProductStore } from "@/stores";
 import Newsletter from "@/components/Common/Newsletter.vue";
 import Breadcrumb from "@/components/Common/Breadcrumb.vue";
-import USelectNew from "@/components/Common/USelectNew.vue";
+import ProductFilter from "@/components/Product/ProductFilter.vue";
 
-const router = useRouter();
 const route = useRoute();
 
-const genderOptions = ref<IOption[]>([
-  { key: "men", value: "Nước hoa nam" },
-  { key: "women", value: "Nước hoa nữ" },
-  { key: "unisex", value: "Nước hoa unisex" },
-]);
-const priceOptions = ref<IOption[]>([
-  { key: "lt1", value: "Dưới 1 triệu" },
-  { key: "1to3", value: "1 triệu - 3 triệu" },
-  { key: "gt3", value: "Trên 3 triệu" },
-]);
-const seasonOptions = ref<IOption[]>([
-  { key: "xuan", value: "Mùa Xuân" },
-  { key: "he", value: "Mùa Hè" },
-  { key: "thu", value: "Mùa Thu" },
-  { key: "dong", value: "Mùa Đông" },
-]);
-const sortOptions = ref<IOption[]>([
-  { key: "atoz", value: "Tên từ A đến Z" },
-  { key: "ztoa", value: "Tên từ Z đến A" },
-  { key: "ltoh", value: "Giá từ thấp đến cao" },
-  { key: "htol", value: "Giá từ cao đến thấp" },
-]);
-
-const genderSelected = ref();
-const priceSelected = ref();
-const seasonSelected = ref();
-const sortSelected = ref("atoz");
-const gridSelected = ref<"3x3" | "2x2" | "2x1" | "1x2">("3x3");
-
 const { products } = storeToRefs(useProductStore());
+const { popupSelected } = storeToRefs(useCommonStore());
 
 const breadcrumbs = ref<IBreadcrum[]>([
   { text: "Trang chủ", link: { name: "Home" } },
@@ -66,43 +38,16 @@ onMounted(() => {
         >
         <span class="text-16px font-medium text-neutral-400">(1200)</span>
       </div>
-      <div class="flex my-10 items-end justify-between">
-        <div class="flex gap-6">
-          <div class="w-[285px]">
-            <USelectNew
-              title="Lọc theo giá"
-              :options="priceOptions"
-              v-model:selected="priceSelected"
-            />
-          </div>
-          <div class="w-[285px]">
-            <USelectNew
-              title="Lọc theo giới tính"
-              :options="genderOptions"
-              v-model:selected="genderSelected"
-            />
-          </div>
-          <div class="w-[285px]">
-            <USelectNew
-              title="Lọc theo mùa"
-              :options="seasonOptions"
-              v-model:selected="seasonSelected"
-            />
-          </div>
-        </div>
-        <div class="flex items-center -mb-4">
-          <div class="flex items-center mr-4">
-            <span
-              class="text-16px font-medium text-neutral-400 whitespace-nowrap"
-              >Sắp xếp:</span
-            >
-            <USelect
-              class="border-transparent"
-              :options="sortOptions"
-              v-model:selected="sortSelected"
-            />
-          </div>
-        </div>
+      <div
+        class="flex my-10 items-center gap-3 cursor-pointer text-neutral-900 hover:text-brand-400"
+        @click="
+          () => {
+            popupSelected = 'filter';
+          }
+        "
+      >
+        <span class="text-18px font-semibold">Bộ lọc</span>
+        <FilterIcon class="" />
       </div>
       <div class="flex flex-col items-center">
         <div class="flex flex-wrap -mx-3 mb-20">
@@ -146,4 +91,5 @@ onMounted(() => {
     </div>
     <Newsletter />
   </div>
+  <ProductFilter v-if="popupSelected == 'filter'" />
 </template>
