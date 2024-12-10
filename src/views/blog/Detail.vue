@@ -40,8 +40,12 @@ const breadcrumbs = ref<IBreadcrum[]>([
             mang lại. Hãy cùng khám phá các tầng hương nước hoa để hiểu vì sao
             chúng chính là “linh hồn” của mỗi sản phẩm nước hoa.</span
           >
-          <div class="h-[500px] overflow-hidden">
-            <img src="@/assets/images/blog-detail-3.png" alt="" class="" />
+          <div class="overflow-hidden">
+            <img
+              src="@/assets/images/blog-detail-3.png"
+              alt=""
+              class="w-full"
+            />
           </div>
           <span class="text-20px font-medium">Tầng hương nước hoa là gì?</span>
           <span class=""
@@ -89,7 +93,11 @@ const breadcrumbs = ref<IBreadcrum[]>([
             nên sự tinh tế và ấn tượng riêng biệt.</span
           >
           <div class="">
-            <img src="@/assets/images/blog-detail-2.png" alt="" class="" />
+            <img
+              src="@/assets/images/blog-detail-2.png"
+              alt=""
+              class="w-full"
+            />
           </div>
           <span class="text-20px font-medium"
             >Gợi ý lựa chọn tầng hương nước hoa cho từng dịp cụ thể</span
