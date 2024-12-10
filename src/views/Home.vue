@@ -236,9 +236,9 @@ const { products } = storeToRefs(useProductStore());
     </div>
     <div class="mx-content my-20">
       <div class="flex mb-10 items-end justify-between">
-        <span class="text-40px font-medium">Blog</span>
+        <span class="text-36px font-medium">Blog</span>
         <RouterLink
-          :to="{ name: 'Home' }"
+          :to="{ name: 'BlogDetail', params: { slug: 'blog-detail' } }"
           class="inline-flex items-center border-b border-neutral-700"
         >
           <span class="text-16px text-neutral-700 font-medium mr-1"
@@ -248,7 +248,10 @@ const { products } = storeToRefs(useProductStore());
         </RouterLink>
       </div>
       <div class="flex gap-5">
-        <RouterLink :to="{ name: 'Home' }" class="flex-1">
+        <RouterLink
+          :to="{ name: 'BlogDetail', params: { slug: 'blog-detail' } }"
+          class="flex-1"
+        >
           <div class="mb-5 overflow-hidden aspect-video">
             <img class="w-full" src="@/assets/images/blog-2.png" alt="Blog 2" />
           </div>
@@ -260,7 +263,10 @@ const { products } = storeToRefs(useProductStore());
             <span class="text-16px text-neutral-700">May 16, 2024</span>
           </div>
         </RouterLink>
-        <RouterLink :to="{ name: 'Home' }" class="flex-1">
+        <RouterLink
+          :to="{ name: 'BlogDetail', params: { slug: 'blog-detail' } }"
+          class="flex-1"
+        >
           <div class="mb-5 overflow-hidden aspect-video">
             <img class="w-full" src="@/assets/images/blog-3.png" alt="Blog 3" />
           </div>
@@ -272,7 +278,10 @@ const { products } = storeToRefs(useProductStore());
             <span class="text-16px text-neutral-700">May 16, 2024</span>
           </div>
         </RouterLink>
-        <RouterLink :to="{ name: 'Home' }" class="flex-1">
+        <RouterLink
+          :to="{ name: 'BlogDetail', params: { slug: 'blog-detail' } }"
+          class="flex-1"
+        >
           <div class="mb-5 overflow-hidden aspect-video">
             <img class="w-full" src="@/assets/images/blog-1.png" alt="Blog 1" />
           </div>
